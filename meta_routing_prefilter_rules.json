@@ -1,0 +1,271 @@
+{
+  "tool_route_map": {
+    "skill-index.py": "dev_request",
+    "session-guard.sh": "experiment_request",
+    "test-router-v3.sh": "dev_request",
+    "router-monitor.sh": "monitoring",
+    "tool-metadata-linter.sh": "dev_request",
+    "deploy-p2-cortex.sh": "ops_request",
+    "message-router-v3-api.py": "dev_request",
+    "router-shadow-dashboard.py": "experiment_request",
+    "labeled-drift-corpus.py": "experiment_request"
+  },
+  "tool_aliases": {
+    "session-guard": "session-guard.sh",
+    "skill index": "skill-index.py",
+    "skill-index": "skill-index.py",
+    "router v3": "message-router-v3-api.py",
+    "router shadow dashboard": "router-shadow-dashboard.py",
+    "labeled drift corpus": "labeled-drift-corpus.py"
+  },
+  "term_sets": {
+    "explicit_tool_verbs": [
+      "run",
+      "execute",
+      "use",
+      "trigger",
+      "invoke",
+      "call",
+      "rebuild",
+      "sync",
+      "lint"
+    ],
+    "testing_execution_prefixes": [
+      "run",
+      "execute",
+      "kick off"
+    ],
+    "testing_patterns": [
+      "test suite",
+      "router tests",
+      "regression tests",
+      "regression test",
+      "full regression",
+      "smoke tests",
+      "smoke test"
+    ],
+    "repair_verbs": [
+      "fix",
+      "patch",
+      "add",
+      "update",
+      "rebuild",
+      "debug",
+      "repair",
+      "implement",
+      "build",
+      "create",
+      "lint"
+    ],
+    "ops_verbs": [
+      "deploy",
+      "rollback",
+      "release",
+      "scale",
+      "promote"
+    ],
+    "research_patterns": [
+      "research",
+      "explain",
+      "compare",
+      "tradeoff",
+      "tradeoffs",
+      "deep-dive",
+      "deep dive",
+      "how hard would it be",
+      "what would it take",
+      "look into why",
+      "look into whether"
+    ],
+    "meta_agent_patterns": [
+      "route this",
+      "who should handle",
+      "which agent",
+      "should this query go to",
+      "should this go to"
+    ],
+    "meta_monitoring_patterns": [
+      "route pairs",
+      "mismatch most often",
+      "keeps correcting",
+      "shadow log",
+      "summarize drift",
+      "review the shadow log",
+      "drift summary"
+    ],
+    "meta_experiment_patterns": [
+      "plot action distribution",
+      "plot ",
+      "graph ",
+      "chart ",
+      "visualize "
+    ],
+    "metric_terms": [
+      "latency",
+      "throughput",
+      "error rate",
+      "error rates",
+      "stats",
+      "spikes",
+      "metrics",
+      "distribution",
+      "alerting"
+    ],
+    "context_guard_patterns": [
+      "context saturation",
+      "context limit",
+      "saturation report"
+    ],
+    "health_check_patterns": [
+      "health check",
+      "infrastructure health"
+    ],
+    "health_terms": [
+      "health",
+      "healthy",
+      "running",
+      "alive",
+      "connection",
+      "connections",
+      "cpu",
+      "memory"
+    ],
+    "service_terms": [
+      "redis",
+      "postgres",
+      "broker",
+      "server",
+      "process",
+      "service",
+      "api"
+    ],
+    "question_research_prefixes": [
+      "how hard",
+      "what would it take",
+      "what are the tradeoffs",
+      "why"
+    ],
+    "watch_verbs": [
+      "check",
+      "verify",
+      "watch",
+      "track",
+      "monitor"
+    ]
+  },
+  "rules": [
+    {
+      "name": "explicit_tool_invocation",
+      "kind": "tool_and_prefix",
+      "route": "tool_route",
+      "prefix_signal": "explicit_tool_verb_prefix"
+    },
+    {
+      "name": "testing_execution_intent",
+      "kind": "prefix_and_pattern",
+      "route": "dev_request",
+      "prefix_signal": "testing_execution_prefix",
+      "pattern_signal": "testing_pattern"
+    },
+    {
+      "name": "repair_verb_override",
+      "kind": "signal",
+      "route": "dev_request",
+      "signal": "repair_verb"
+    },
+    {
+      "name": "ops_verb_gate",
+      "kind": "signal",
+      "route": "ops_request",
+      "signal": "ops_verb"
+    },
+    {
+      "name": "meta_tool_resolution",
+      "kind": "literal",
+      "route": "dev_request",
+      "literal": "what tool should",
+      "detail": "what tool should"
+    },
+    {
+      "name": "context_guard_prefilter",
+      "kind": "signal",
+      "route": "experiment_request",
+      "signal": "context_guard"
+    },
+    {
+      "name": "explicit_health_check",
+      "kind": "signal",
+      "route": "infrastructure_health",
+      "signal": "health_check"
+    },
+    {
+      "name": "research_verb_hierarchy",
+      "kind": "signal",
+      "route": "research_query",
+      "signal": "research_pattern"
+    },
+    {
+      "name": "research_question_prefix",
+      "kind": "signal",
+      "route": "research_query",
+      "signal": "question_prefix"
+    },
+    {
+      "name": "meta_shadow_visualization",
+      "kind": "signal_and_literals",
+      "route": "experiment_request",
+      "signal": "meta_experiment",
+      "require_any_literals": [
+        "shadow",
+        "planner",
+        "drift"
+      ]
+    },
+    {
+      "name": "meta_drift_monitoring",
+      "kind": "signal",
+      "route": "monitoring",
+      "signal": "meta_monitoring"
+    },
+    {
+      "name": "meta_agent_routing",
+      "kind": "signal",
+      "route": "agent_communication",
+      "signal": "meta_agent"
+    },
+    {
+      "name": "tool_domain_lookup",
+      "kind": "tool_lookup",
+      "route": "tool_route"
+    },
+    {
+      "name": "service_investigation",
+      "kind": "literal_and_signal",
+      "route": "infrastructure_health",
+      "literal": "investigate",
+      "signal": "service_term"
+    },
+    {
+      "name": "metric_monitoring_disambiguator",
+      "kind": "signal",
+      "route": "monitoring",
+      "signal": "metric_term"
+    },
+    {
+      "name": "service_health_disambiguator",
+      "kind": "all_signals",
+      "route": "infrastructure_health",
+      "signals": [
+        "health_term",
+        "service_term"
+      ]
+    },
+    {
+      "name": "service_watch_disambiguator",
+      "kind": "literal_set_and_signal",
+      "route": "infrastructure_health",
+      "literal_set": "watch_verbs",
+      "signal": "service_term"
+    }
+  ]
+}

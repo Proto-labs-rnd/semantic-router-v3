@@ -1,0 +1,314 @@
+{
+  "corpus": {
+    "total": 58,
+    "observed": 22,
+    "synthetic": 36,
+    "decisive": 52,
+    "ambiguous": 6
+  },
+  "labels": {
+    "planner_correct": 41,
+    "ambiguous": 6,
+    "live_correct": 6,
+    "neither_correct": 5
+  },
+  "mechanisms": {
+    "keyword_hijack": 24,
+    "monitoring_overgeneralization": 14,
+    "infrastructure_health_overreach": 7,
+    "meta_routing": 4,
+    "agent_affinity_bias": 3
+  },
+  "families": [
+    {
+      "family": "meta_routing",
+      "count": 6,
+      "live_accuracy": 25.0,
+      "planner_accuracy": 25.0,
+      "ambiguous": 2,
+      "clarify_noise": 0,
+      "labels": {
+        "neither_correct": 3,
+        "ambiguous": 2,
+        "live_correct": 1
+      }
+    },
+    {
+      "family": "dev_maintenance",
+      "count": 4,
+      "live_accuracy": 0.0,
+      "planner_accuracy": 50.0,
+      "ambiguous": 0,
+      "clarify_noise": 0,
+      "labels": {
+        "planner_correct": 3,
+        "neither_correct": 1
+      }
+    },
+    {
+      "family": "research",
+      "count": 4,
+      "live_accuracy": 25.0,
+      "planner_accuracy": 100.0,
+      "ambiguous": 0,
+      "clarify_noise": 0,
+      "labels": {
+        "planner_correct": 3,
+        "live_correct": 1
+      }
+    },
+    {
+      "family": "agent_affinity_router_topic",
+      "count": 3,
+      "live_accuracy": 0.0,
+      "planner_accuracy": 100.0,
+      "ambiguous": 0,
+      "clarify_noise": 0,
+      "labels": {
+        "planner_correct": 3
+      }
+    },
+    {
+      "family": "boundary_dev_research",
+      "count": 3,
+      "live_accuracy": 0.0,
+      "planner_accuracy": 100.0,
+      "ambiguous": 0,
+      "clarify_noise": 0,
+      "labels": {
+        "planner_correct": 3
+      }
+    },
+    {
+      "family": "boundary_monitoring_research",
+      "count": 3,
+      "live_accuracy": 0.0,
+      "planner_accuracy": 100.0,
+      "ambiguous": 2,
+      "clarify_noise": 0,
+      "labels": {
+        "ambiguous": 2,
+        "planner_correct": 1
+      }
+    },
+    {
+      "family": "clarify_noise_clear_dev_intent",
+      "count": 3,
+      "live_accuracy": 0.0,
+      "planner_accuracy": 100.0,
+      "ambiguous": 0,
+      "clarify_noise": 0,
+      "labels": {
+        "planner_correct": 3
+      }
+    },
+    {
+      "family": "clarify_noise_explicit_tool",
+      "count": 3,
+      "live_accuracy": 0.0,
+      "planner_accuracy": 100.0,
+      "ambiguous": 0,
+      "clarify_noise": 0,
+      "labels": {
+        "planner_correct": 3
+      }
+    },
+    {
+      "family": "semantic_agentcomm_research",
+      "count": 3,
+      "live_accuracy": 0.0,
+      "planner_accuracy": 100.0,
+      "ambiguous": 0,
+      "clarify_noise": 0,
+      "labels": {
+        "planner_correct": 3
+      }
+    },
+    {
+      "family": "semantic_agentcomm_research_delegation",
+      "count": 3,
+      "live_accuracy": 0.0,
+      "planner_accuracy": 100.0,
+      "ambiguous": 0,
+      "clarify_noise": 0,
+      "labels": {
+        "planner_correct": 3
+      }
+    },
+    {
+      "family": "synonym_infra_monitoring",
+      "count": 3,
+      "live_accuracy": 0.0,
+      "planner_accuracy": 100.0,
+      "ambiguous": 2,
+      "clarify_noise": 0,
+      "labels": {
+        "ambiguous": 2,
+        "planner_correct": 1
+      }
+    },
+    {
+      "family": "synonym_monitoring_infra",
+      "count": 3,
+      "live_accuracy": 0.0,
+      "planner_accuracy": 100.0,
+      "ambiguous": 0,
+      "clarify_noise": 0,
+      "labels": {
+        "planner_correct": 3
+      }
+    },
+    {
+      "family": "tool_signal_agentcomm_dev",
+      "count": 3,
+      "live_accuracy": 0.0,
+      "planner_accuracy": 100.0,
+      "ambiguous": 0,
+      "clarify_noise": 0,
+      "labels": {
+        "planner_correct": 3
+      }
+    },
+    {
+      "family": "tool_signal_monitoring_dev",
+      "count": 3,
+      "live_accuracy": 0.0,
+      "planner_accuracy": 100.0,
+      "ambiguous": 0,
+      "clarify_noise": 0,
+      "labels": {
+        "planner_correct": 3
+      }
+    },
+    {
+      "family": "tool_signal_monitoring_experiment",
+      "count": 3,
+      "live_accuracy": 0.0,
+      "planner_accuracy": 100.0,
+      "ambiguous": 0,
+      "clarify_noise": 0,
+      "labels": {
+        "planner_correct": 3
+      }
+    },
+    {
+      "family": "experiment",
+      "count": 2,
+      "live_accuracy": 50.0,
+      "planner_accuracy": 50.0,
+      "ambiguous": 0,
+      "clarify_noise": 0,
+      "labels": {
+        "live_correct": 1,
+        "neither_correct": 1
+      }
+    },
+    {
+      "family": "infra_alert",
+      "count": 2,
+      "live_accuracy": 100.0,
+      "planner_accuracy": 100.0,
+      "ambiguous": 0,
+      "clarify_noise": 0,
+      "labels": {
+        "live_correct": 2
+      }
+    },
+    {
+      "family": "dev_testing",
+      "count": 1,
+      "live_accuracy": 0.0,
+      "planner_accuracy": 100.0,
+      "ambiguous": 0,
+      "clarify_noise": 0,
+      "labels": {
+        "planner_correct": 1
+      }
+    },
+    {
+      "family": "infra_guard",
+      "count": 1,
+      "live_accuracy": 0.0,
+      "planner_accuracy": 100.0,
+      "ambiguous": 0,
+      "clarify_noise": 0,
+      "labels": {
+        "planner_correct": 1
+      }
+    },
+    {
+      "family": "monitoring",
+      "count": 1,
+      "live_accuracy": 0.0,
+      "planner_accuracy": 100.0,
+      "ambiguous": 0,
+      "clarify_noise": 0,
+      "labels": {
+        "planner_correct": 1
+      }
+    },
+    {
+      "family": "ops_deploy",
+      "count": 1,
+      "live_accuracy": 100.0,
+      "planner_accuracy": 100.0,
+      "ambiguous": 0,
+      "clarify_noise": 0,
+      "labels": {
+        "live_correct": 1
+      }
+    }
+  ],
+  "accuracy": {
+    "live_accuracy_decisive": 11.5,
+    "planner_accuracy_decisive": 88.5,
+    "live_accuracy_observed_decisive": 30.0,
+    "planner_accuracy_observed_decisive": 70.0
+  },
+  "corrections": {
+    "total_corrected": 44,
+    "decisive_corrected": 40,
+    "planner_saved": 40,
+    "planner_harmed": 0,
+    "neither_correct": 0,
+    "ambiguous": 4,
+    "planner_precision_on_corrections": 100.0
+  },
+  "clarify": {
+    "total": 17,
+    "legitimate": 17,
+    "noise": 0,
+    "noise_rate": 0.0,
+    "avoidable_cases": 35
+  },
+  "latency": {
+    "planner_observed_avg_ms": 919.31,
+    "planner_observed_max_ms": 1524.1
+  },
+  "priorities": [
+    {
+      "kind": "route_pair",
+      "pair": "agent_communication->research_query",
+      "evidence": "planner wins 9 vs live 0",
+      "action": "review route rules / shared constants for this drift pair"
+    },
+    {
+      "kind": "route_pair",
+      "pair": "agent_communication->dev_request",
+      "evidence": "planner wins 8 vs live 0",
+      "action": "review route rules / shared constants for this drift pair"
+    },
+    {
+      "kind": "route_pair",
+      "pair": "monitoring->dev_request",
+      "evidence": "planner wins 7 vs live 0",
+      "action": "review route rules / shared constants for this drift pair"
+    },
+    {
+      "kind": "meta_gap",
+      "pair": "meta_routing",
+      "evidence": "5 rows where neither system is clearly right",
+      "action": "add a meta-routing prefilter or a dedicated route bucket"
+    }
+  ]
+}
